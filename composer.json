@@ -7,7 +7,7 @@
             "email": "anton.shever96@gmail.com"
         }
     ],
-    "minimum-stability": "v1.0.0",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {},
     "autoload": {
