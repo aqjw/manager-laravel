@@ -62,6 +62,12 @@ class GetList
             } catch (\Exception $e) {
                 continue;
             }
+            // $method_position = \ReflectionMethod::export(str_replace('.', '\\', $namespace), $method, true);
+            // preg_match('/(\d+) - (\d+)/', $method_position, $matches);
+            // dd(
+            //     $matches,
+            //     $method_position
+            // );
 
             $relationType = explode('\\', get_class($model->{$method}()));
             if (in_array(end($relationType), $this->relationsName)) {

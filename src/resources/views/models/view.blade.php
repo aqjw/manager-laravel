@@ -13,9 +13,11 @@
                         @foreach($relations as $relationType => $relations_list)
                             <div class="mt-3 mb-5">
                                 <div class="h4">{{ $relationType }}</div>
-                                @includeIf('managerl::models.relations.' . $relationType,
-                                    compact('relations_list')
-                                )
+                                <div style="overflow: hidden;">
+                                    @includeIf('managerl::models.relations.' . $relationType,
+                                        compact('relations_list')
+                                    )
+                                </div>
                             </div>
                         @endforeach
                     </div>

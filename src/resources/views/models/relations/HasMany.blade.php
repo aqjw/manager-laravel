@@ -1,5 +1,5 @@
 @foreach($relations_list as $relation)
-    <div style="background: #282923;color: #FFF;" class="p-2 mb-2 rounded">
+    <div style="background: #282923;color: #FFF;" class="p-2 pr-4 mb-2 mr-3 float-left rounded">
         <span style="color: #67D8EF">function </span>
         <span style="color: #A6DD29">{{ $relation['relationName'] }}</span>
         <span style="color: #FFF">(@include('managerl::models.relations.arguments', ['arguments' => $relation['arguments']]))</span>
