@@ -14,6 +14,5 @@ Aqjw\ManagerLaravel\ManagerLaravelServiceProvider::class,
 Copy the package assets to your local config with the publish command:
 ```shell
 php artisan vendor:publish --tag=public --force
-
 ```
 
