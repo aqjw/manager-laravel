@@ -1,0 +1,18 @@
+{
+    "name": "aqjw/manager-laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton",
+            "email": "anton.shever96@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Aqjw\\ManagerLaravel\\": "src"
+        }
+    }
+}
