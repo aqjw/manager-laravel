@@ -11,7 +11,7 @@ If you don't use auto-discovery, add the ServiceProvider to the providers array 
 Aqjw\ManagerLaravel\ManagerLaravelServiceProvider::class,
 ```
 
-Copy the package assets to your local config with the publish command:
+Copy the package resources to the local public directory with the publish command:
 ```shell
 php artisan vendor:publish --tag=public --force
 ```
