@@ -14,5 +14,12 @@
         "psr-4": {
             "Aqjw\\ManagerLaravel\\": "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aqjw\\ManagerLaravel\\ManagerLaravelServiceProvider"
+            ]
+        }
     }
 }
