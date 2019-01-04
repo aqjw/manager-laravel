@@ -1,25 +1,25 @@
-{
-    "name": "aqjw/manager-laravel",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Anton",
-            "email": "anton.shever96@gmail.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "prefer-stable": true,
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "Aqjw\\ManagerLaravel\\": "src"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Aqjw\\ManagerLaravel\\ManagerLaravelServiceProvider"
-            ]
+    {
+        "name": "aqjw/manager-laravel",
+        "license": "MIT",
+        "authors": [
+            {
+                "name": "Anton",
+                "email": "anton.shever96@gmail.com"
+            }
+        ],
+        "minimum-stability": "stable",
+        "prefer-stable": true,
+        "require": {},
+        "autoload": {
+            "psr-4": {
+                "Aqjw\\ManagerLaravel\\": "src"
+            }
+        },
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Aqjw\\ManagerLaravel\\ManagerLaravelServiceProvider"
+                ]
+            }
         }
     }
-}
