@@ -4,6 +4,7 @@ namespace Aqjw\ManagerLaravel\Library\Models;
 
 use Carbon\Carbon;
 use File;
+use ReflectionClass;
 
 /**
  *
@@ -13,39 +14,47 @@ class Models
 
     public function getListModels()
     {
-        function getModels($path, $recursive = true, $prefix = '')
+        function getModels($path, $inModals = true)
         {
-            $out = [];
-
-            if ($recursive) {
-                $files = File::allFiles($path);
-            } else {
-                $files = File::files($path);
+            if (!is_dir($path)) {
+                return [];
             }
 
+            if ($inModals) {
+                $files = File::allFiles($path);
+                $prefix = 'App.Models.';
+            } else {
+                $files = File::files($path);
+                $prefix = 'App.';
+            }
+
+            $models = [];
             foreach ($files as $file) {
                 $filename = $file->getFilename();
                 if (false !== strpos($filename, '.php')) {
                     $filename = explode('/', $filename);
-                    $out[] = [
-                        'name' => $prefix . str_replace('.php', '', end($filename)),
+                    $namespace = $prefix . str_replace('.php', '', end($filename));
+
+                    if (!(new ReflectionClass(str_replace('.', '\\', $namespace)))->isInstantiable()) {
+                        // Cannot create an instance of this class.
+                        continue;
+                    }
+
+                    $models[] = [
+                        'name' => $namespace,
                         'size' => $file->getSize(),
                         'updated_at' => Carbon::createFromTimestamp($file->getMTime()),
                     ];
                 }
             }
 
-            return $out;
+            return $models;
         }
 
-        $path = app_path();
-        $models = getModels($path, false, 'App.');
-        $path = app_path('Models');
-        if (is_dir($path)) {
-            $models = array_merge($models,
-                getModels($path, true, 'App.Models.')
-            );
-        }
+        $models = array_merge(
+            getModels(app_path(), false),
+            getModels(app_path('Models'))
+        );
 
         return collect($models);
     }
